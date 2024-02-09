@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+{% block content %}
+<form method="post">
+  <label for="currencies">Choose a currency:</label>
+  <select name="currencies" id="currencies">
+    {% if currency_codes_list %}
+    {% for item in currency_codes_list %}
+    <option value="{{item}}">{{item}}</option>
+    {% endfor %}
+    {% endif %}
+  </select> 
+  <label for="quantity">Quantity: </label>
+  <input type="number" id="quantity" name="quantity" placeholder="Podaj ilość..."><br>
+  <input type="submit" value="calculate">
+</form>
+{% endblock %}
