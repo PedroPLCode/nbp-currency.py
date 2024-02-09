@@ -29,12 +29,12 @@ def currencies_view():
         currency_code = data.get('currencies')
         quantity_to_buy = float(data.get("quantity"))
         
-        currency = False
+        currency_ask = False
         for item in currencies_data:
             if item['code'] == currency_code:
-                currency = float(item['ask'])
+                currency_ask = float(item['ask'])
                 
-        pln_cost = round((quantity_to_buy * currency), 2)
+        pln_cost = round((quantity_to_buy * currency_ask), 2)
         return render_template('currencies-output.html', 
                                quantity_to_buy=round(quantity_to_buy, 2), 
                                currency_code=currency_code, 
